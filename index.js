@@ -211,9 +211,14 @@ Practice accessing data above by console.log-ing following items:
 
 console.log(artists[0].name);
 
+//PASS
+
 //(2) Bio of the third artist (2nd index) in the array 
 
 console.log(artists[2].bio);
+
+//PASS
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
@@ -239,6 +244,8 @@ function getArtistByIndex(array, number) {
 }
 
 console.log(getArtistByIndex(artists, 0));
+
+//works in codepen
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -268,7 +275,7 @@ function get20s(array)
   }
 
   
-  //console.log(get20s(artists));
+//console.log(get20s(artists));
 //console log breaking npm -- works in codepen
 
 
@@ -284,8 +291,8 @@ For example, if removeArtist is invoked with the artists array and the number 0,
 
 function removeArtist(array, number) {
   for(let i = 0; i < array.length; i++){
-    if(array[i] === number){
-      array.splice(i, 1);
+    if(array[i].id === number){
+      array.splice(i, number);
     }
   }
     return array;
@@ -293,7 +300,7 @@ function removeArtist(array, number) {
 
 console.log(removeArtist(artists, 1))
 
-//NOT WORKING IN CODEPEN
+//WORKS IN CODEPEN
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -320,7 +327,7 @@ function addArtist(array, object) {
 
 console.log(addArtist(artists, {id: '20'}, {name: 'Greg McKnight'}, {years: 1971 - 2022}),{genre: 'Web Design'}, {nationaliity: 'American'}, {bio: 'Looking to beccome a developer'});
 
-
+//PASS
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -353,33 +360,20 @@ Use artistInfo to do the following:
 For example artistInfo(artists, 'Frida Kahlo') will return: 
   ["Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."]
 */
-// function artistInfo(array, name){
-//   for(i = 0; i < array.length; i++){
-//     if(artists.name === name){
-//       return array;
-//     }
-//   }
-// }
-
-// console.log(artists, 'Frida Kahlo');
-
 
 
 function artistInfo(array, name) {
-  let newArray = [];
   for(i = 0; i < array.length; i++){
     if(array[i].name === name){
-      newArray.push(array[i]);
+      return array[i]
     }
   }
-  return newArray;
 }
 
-console.log(artistInfo, 'Frida Kahlo')
+//console.log(artistInfo(artists, 'Frida Kahlo'));
 
+//console log breaking npm -- works in codepen
 
-
-//NOT WORKING IN CODEPEN
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -391,19 +385,20 @@ Use artistByCountry to do the following:
 For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya', 'El Greco' ]
 */
 
-function artistByCountry(array, nationaliity){
-  for(i = 0; i <array.length; i++){
-    if(artists.nationaliity === nationaliity){
-      return array;
+function artistByCountry(array, nationality) {
+  const filteredArray = [];
+  for(i = 0; i < array.length; i++){
+    if(array[i].nationality === nationality){
+          filteredArray.push(array[i]);   
     }
   }
+  return filteredArray
 }
 
-console.log(artistByCountry, 'German');
+//console.log(artistByCountry(artists, 'Spanish'));
 
+//console log breaking npm -- works in codepen
 
-
-//NOT WORKING IN CODEPEN
 
 
 
