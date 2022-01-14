@@ -219,10 +219,11 @@ console.log(artists[2].bio);
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
 
-artists.name = 'Vincent Van Gogh'
+artists[8].name = 'Vincent Van Gogh'
 
 console.log(artists[8]);
 
+//works in codepen
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -237,7 +238,7 @@ function getArtistByIndex(array, number) {
   return `the artist at index ${array[number].id} is ${array[number].name}`
 }
 
-//console.log(getArtistByIndex(artists, 0));
+console.log(getArtistByIndex(artists, 0));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -254,7 +255,7 @@ function get20s(array)
   const array20 = [];
   for(i = 0; i < artists.length; i++)
   {
-    let arr = array[i].years.split(" - ", 4);
+    let arr = array[i].years.split("-", 4);
     let year1 = arr[0];
     let year2 = arr[1];
     if(parseInt(year1) >= 1900 && parseInt(year2) <= 1999)
@@ -264,8 +265,11 @@ function get20s(array)
   }
     return array20;
     
-
   }
+
+  
+  //console.log(get20s(artists));
+//console log breaking npm -- works in codepen
 
 
 
@@ -289,8 +293,7 @@ function removeArtist(array, number) {
 
 console.log(removeArtist(artists, 1))
 
-
-
+//NOT WORKING IN CODEPEN
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -327,16 +330,19 @@ Use lotsOfArt to do the following:
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
 function lotsOfArt(array) {
-  const newArray = [];
+  let newArray = [];
   for(i = 0; i < array.length; i++){
     if(array[i].paintings > 100){
       newArray.push(array[i]);
     }
   }
-  return array;
+  return newArray;
 }
 
-//console.log(lotsOfArt())
+//console.log(lotsOfArt(artists))
+//console log breaking npm -- works in codepen
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistInfo to do the following: 
@@ -347,15 +353,34 @@ Use artistInfo to do the following:
 For example artistInfo(artists, 'Frida Kahlo') will return: 
   ["Frida Kahlo de Rivera (Spanish pronunciation: [ˈfɾiða ˈkalo]; born Magdalena Carmen Frida Kahlo y Calderón; 6 July 1907 – 13 July 1954) was a Mexican artist who painted many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. Inspired by the country's popular culture, she employed a naïve folk art style to explore questions of identity, postcolonialism, gender, class and race in Mexican society. Her paintings often had strong autobiographical elements and mixed realism with fantasy. In addition to belonging to the post-revolutionary Mexicayotl movement, which sought to define a Mexican identity, Kahlo has been described as a surrealist or magical realist.Born to a German father and a mestiza mother, Kahlo spent most of her childhood and adult life at her family home in Coyoacán, La Casa Azul, now known and publicly accessible as the Frida Kahlo Museum. She was disabled by polio as a child. Until a traffic accident at age eighteen caused lifelong pain and medical problems, she had been a promising student headed for medical school. During her recovery, she returned to her childhood hobby of art with the idea of becoming an artist."]
 */
-function artistInfo(array, name){
+// function artistInfo(array, name){
+//   for(i = 0; i < array.length; i++){
+//     if(artists.name === name){
+//       return array;
+//     }
+//   }
+// }
+
+// console.log(artists, 'Frida Kahlo');
+
+
+
+function artistInfo(array, name) {
+  let newArray = [];
   for(i = 0; i < array.length; i++){
-    if(artists.name === name){
-      return array
+    if(array[i].name === name){
+      newArray.push(array[i]);
     }
   }
+  return newArray;
 }
 
-console.log(artists, 'Frida Kahlo')
+console.log(artistInfo, 'Frida Kahlo')
+
+
+
+//NOT WORKING IN CODEPEN
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 9: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use artistByCountry to do the following: 
@@ -375,6 +400,12 @@ function artistByCountry(array, nationaliity){
 }
 
 console.log(artistByCountry, 'German');
+
+
+
+//NOT WORKING IN CODEPEN
+
+
 
 /* ***** END OF TASKS ***** */
 
