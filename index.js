@@ -228,7 +228,7 @@ artists[8].name = 'Vincent Van Gogh'
 
 console.log(artists[8]);
 
-//works in codepen
+//PASS
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -245,7 +245,7 @@ function getArtistByIndex(array, number) {
 
 console.log(getArtistByIndex(artists, 0));
 
-//works in codepen
+//PASS
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -259,7 +259,7 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(array) {
   const array20 = [];
-  for(i = 0; i < artists.length; i++){
+  for(let i = 0; i < artists.length; i++){
     let arr = array[i].years.split("-", 4);
     let year1 = arr[0];
     let year2 = arr[1];
@@ -270,12 +270,9 @@ function get20s(array) {
     return array20;  
   }
  
-//console.log(get20s(artists));
+console.log(get20s(artists));
 
-
-//console log breaking npm -- works in codepen
-
-
+//PASS
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use removeArtist to do the following:
@@ -292,12 +289,12 @@ function removeArtist(array, number){
       array.splice(i, number);
     }
   }
-    return array;
+    return array.length -1;
 }
 
-console.log(removeArtist(artists, 1))
+console.log(removeArtist(artists, 1));
 
-//WORKS IN CODEPEN
+//PASS
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -335,16 +332,18 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 
 function lotsOfArt(array){
   let newArray = [];
-  for(i = 0; i < array.length; i++){
+  for(let i = 0; i < array.length; i++){
     if(array[i].paintings > 100){
-      newArray.push(array[i]);
+      newArray.push(array[i].name);
     }
   }
   return newArray;
 }
 
-//console.log(lotsOfArt(artists))
-//console log breaking npm -- works in codepen
+console.log(lotsOfArt(artists))
+
+
+//PASS
 
 
 
@@ -359,17 +358,19 @@ For example artistInfo(artists, 'Frida Kahlo') will return:
 */
 
 
+
+
 function artistInfo(array, name) {
-  for(i = 0; i < array.length; i++){
+  let newArray = []; 
+  for(let i = 0; i < array.length; i++){
     if(array[i].name === name){
-      return array[i]
+      newArray.push(array[i].bio);
     }
   }
+  return newArray;
 }
 
-//console.log(artistInfo(artists, 'Frida Kahlo'));
-
-//console log breaking npm -- works in codepen
+console.log(artistInfo(artists, 'Kazimir Malevich'));
 
 
 
@@ -384,15 +385,15 @@ For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 
 
 function artistByCountry(array, nationality){
   const filteredArray = [];
-  for(i = 0; i < array.length; i++){
+  for(let i = 0; i < array.length; i++){
     if(array[i].nationality === nationality){
-        filteredArray.push(array[i]);   
+        filteredArray.push(array[i].name);   
     }
   }
   return filteredArray
 }
 
-//console.log(artistByCountry(artists, 'Spanish'));
+console.log(artistByCountry(artists, 'Spanish'));
 
 //console log breaking npm -- works in codepen
 
