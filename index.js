@@ -257,25 +257,22 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
-function get20s(array) 
-{
+function get20s(array) {
   const array20 = [];
-  for(i = 0; i < artists.length; i++)
-  {
+  for(i = 0; i < artists.length; i++){
     let arr = array[i].years.split("-", 4);
     let year1 = arr[0];
     let year2 = arr[1];
-    if(parseInt(year1) >= 1900 && parseInt(year2) <= 1999)
-    {
+    if(parseInt(year1) >= 1900 && parseInt(year2) <= 1999){
         array20.push(array[i].name);
+      }
     }
+    return array20;  
   }
-    return array20;
-    
-  }
-
-  
+ 
 //console.log(get20s(artists));
+
+
 //console log breaking npm -- works in codepen
 
 
@@ -289,7 +286,7 @@ Use removeArtist to do the following:
 
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
-function removeArtist(array, number) {
+function removeArtist(array, number){
   for(let i = 0; i < array.length; i++){
     if(array[i].id === number){
       array.splice(i, number);
@@ -322,12 +319,12 @@ Example: addArtist(artists) should return the artists array with the above objec
 function addArtist(array, object) {
   array.push(object);
   return array;
-  
 }
 
 console.log(addArtist(artists, {id: '20'}, {name: 'Greg McKnight'}, {years: 1971 - 2022}),{genre: 'Web Design'}, {nationaliity: 'American'}, {bio: 'Looking to beccome a developer'});
 
 //PASS
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use lotsOfArt to do the following: 
@@ -336,7 +333,7 @@ Use lotsOfArt to do the following:
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
 
-function lotsOfArt(array) {
+function lotsOfArt(array){
   let newArray = [];
   for(i = 0; i < array.length; i++){
     if(array[i].paintings > 100){
@@ -385,11 +382,11 @@ Use artistByCountry to do the following:
 For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 'Pablo Picasso', 'Francisco Goya', 'El Greco' ]
 */
 
-function artistByCountry(array, nationality) {
+function artistByCountry(array, nationality){
   const filteredArray = [];
   for(i = 0; i < array.length; i++){
     if(array[i].nationality === nationality){
-          filteredArray.push(array[i]);   
+        filteredArray.push(array[i]);   
     }
   }
   return filteredArray
